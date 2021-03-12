@@ -3,9 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1401
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebResources", "WebResources", "{F2750872-0A7D-400C-AEE6-42DB511E34DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Javascript", "Javascript", "{65674E2B-9471-4BFE-8FA7-07B94FB08FBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{3D7EA74E-6F1B-4534-912B-E467B8CCAA19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML", "XML", "{173CE719-2FD8-43D6-BA07-A8B1AE8B9A6A}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65674E2B-9471-4BFE-8FA7-07B94FB08FBC} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
+		{3D7EA74E-6F1B-4534-912B-E467B8CCAA19} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
+		{173CE719-2FD8-43D6-BA07-A8B1AE8B9A6A} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BCB6D9F-05A7-494B-BB39-808E749F285D}
