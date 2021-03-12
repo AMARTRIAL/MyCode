@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebResources", "WebResources", "{F2750872-0A7D-400C-AEE6-42DB511E34DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Javascript", "Javascript", "{65674E2B-9471-4BFE-8FA7-07B94FB08FBC}"
+	ProjectSection(SolutionItems) = preProject
+		test.js = test.js
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{3D7EA74E-6F1B-4534-912B-E467B8CCAA19}"
 EndProject
