@@ -16,10 +16,6 @@ namespace ASB.Plugin
 
     public class PreValidationEvent : IPlugin
     {
-        ITracingService tracingService = null;
-        IPluginExecutionContext context = null;
-        IOrganizationServiceFactory serviceFactory = null;
-        IOrganizationService service = null;
         /// <summary>
         /// plugin registered in pre-validation stage(10). Syncronous - sandbox - database
         /// this function will check if contacts status is approved. If status is approved then associate the records with cropping else throw error and send email to contact
@@ -27,40 +23,36 @@ namespace ASB.Plugin
         /// <param name="serviceProvider"></param>
         public void Execute(IServiceProvider serviceProvider)
         {
-            tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
-            context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
-            serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
-            service = serviceFactory.CreateOrganizationService(context.UserId);
+            var pluginObject = PluginUtility.CRMService(serviceProvider);
             try
             {
-                bool isContactApproved = false;
                 EntityReference targetEntity = null;
                 string relationshipName = string.Empty;
                 EntityReferenceCollection relatedEntities = null;
                 EntityReference relatedEntity = null;
-                if (context.MessageName.ToUpper() == GlobalConstants.ASSOCIATE)
+                if (pluginObject.context.MessageName.ToUpper() == GlobalConstants.ASSOCIATE)
                 {
-                    if (context.InputParameters.Contains("Relationship"))
+                    if (pluginObject.context.InputParameters.Contains("Relationship"))
                     {
-                        relationshipName = context.InputParameters["Relationship"].ToString();
+                        relationshipName = pluginObject.context.InputParameters["Relationship"].ToString();
                     }
                     if (relationshipName != GlobalConstants.RELATIONSHIP_CONTACT_CROPPING) {
                         return;
                     }
                     
                     // Get Entity 1 reference from "Target" Key from context
-                    if (context.InputParameters.Contains(GlobalConstants.TARGET) && context.InputParameters[GlobalConstants.TARGET] is EntityReference)
+                    if (pluginObject.context.InputParameters.Contains(GlobalConstants.TARGET) && pluginObject.context.InputParameters[GlobalConstants.TARGET] is EntityReference)
                     {
-                        targetEntity = (EntityReference)context.InputParameters[GlobalConstants.TARGET];
-                        tracingService.Trace("Target Entity : " + targetEntity.LogicalName);
+                        targetEntity = (EntityReference)pluginObject.context.InputParameters[GlobalConstants.TARGET];
+                        pluginObject.tracingService.Trace("Target Entity : " + targetEntity.LogicalName);
                     }
                     // Get Entity 2 reference from  RelatedEntities Key
-                    if (context.InputParameters.Contains(GlobalConstants.RELATEDENTITIES) && context.InputParameters[GlobalConstants.RELATEDENTITIES] is EntityReferenceCollection)
+                    if (pluginObject.context.InputParameters.Contains(GlobalConstants.RELATEDENTITIES) && pluginObject.context.InputParameters[GlobalConstants.RELATEDENTITIES] is EntityReferenceCollection)
                     {
-                        relatedEntities = context.InputParameters[GlobalConstants.RELATEDENTITIES] as EntityReferenceCollection;
+                        relatedEntities = pluginObject.context.InputParameters[GlobalConstants.RELATEDENTITIES] as EntityReferenceCollection;
                         relatedEntity = relatedEntities[0];
-                        tracingService.Trace("Related Entity : "+ relatedEntity.LogicalName);
-                        Entity contact = service.Retrieve(relatedEntity.LogicalName, relatedEntity.Id, new ColumnSet(GlobalConstants.STATUSCODE,GlobalConstants.EMAIL));
+                        pluginObject.tracingService.Trace("Related Entity : "+ relatedEntity.LogicalName);
+                        Entity contact = pluginObject.service.Retrieve(relatedEntity.LogicalName, relatedEntity.Id, new ColumnSet(GlobalConstants.STATUSCODE,GlobalConstants.EMAIL));
                         if(contact.GetAttributeValue<OptionSetValue>(GlobalConstants.STATUSCODE).Value != GlobalConstants.APPROVED)
                         {
                             //send email to contact

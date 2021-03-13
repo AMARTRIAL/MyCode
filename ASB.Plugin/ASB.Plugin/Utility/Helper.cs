@@ -1,8 +1,6 @@
 ﻿/// <copyright file="Helper.cs">
 /// Developed by Amar Singh
 /// </copyright>
-
-
 namespace ASB.Plugin.Utility
 {
     using System;
@@ -13,8 +11,30 @@ namespace ASB.Plugin.Utility
     using System.Text;
     using System.Threading.Tasks;
     using ASB.Plugin.Models;
+    using Microsoft.Xrm.Sdk;
+    using Microsoft.Xrm.Sdk.Query;
+
     public  static class Helper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="id"></param>
+        /// <param name="columns"></param>
+        /// <returns>Respective Entity With Selected Columns</returns>
+        public static Entity GetEntityById(IOrganizationService service,string entity, Guid id, string[] columns)
+        {
+            Entity resultEntity = null;
+            if (id != Guid.Empty)
+                resultEntity = service.Retrieve(entity, id, new ColumnSet(columns));
+            return resultEntity;
+        }
+        /// <summary>
+        /// send email to contact
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static bool SendEmail(string email)
         {
             try
