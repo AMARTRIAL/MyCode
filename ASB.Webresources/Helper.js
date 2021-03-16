@@ -1,4 +1,4 @@
-///<copyrijght file>
+///<copyrijght file='Helper.js'>
 ///Developed by AMAR
 ///</copyrijght>
 if (typesof(ASB) === "undefined") { ASB = {}; }
