@@ -7,12 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebResources", "WebResource
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Javascript", "Javascript", "{65674E2B-9471-4BFE-8FA7-07B94FB08FBC}"
 	ProjectSection(SolutionItems) = preProject
+		Helper.js = Helper.js
 		test.js = test.js
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{3D7EA74E-6F1B-4534-912B-E467B8CCAA19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML", "XML", "{173CE719-2FD8-43D6-BA07-A8B1AE8B9A6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSS", "CSS", "{38B31FFB-A35D-4FA7-9180-4A248B1E612E}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.css = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.css
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css.map = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css.map
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.css = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.css
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.css.map = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.css.map
+		C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.min.css = C:\Users\AMAR\Downloads\bootstrap-4.3.1-dist\bootstrap-4.3.1-dist\css\bootstrap.min.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
@@ -22,6 +33,7 @@ Global
 		{65674E2B-9471-4BFE-8FA7-07B94FB08FBC} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
 		{3D7EA74E-6F1B-4534-912B-E467B8CCAA19} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
 		{173CE719-2FD8-43D6-BA07-A8B1AE8B9A6A} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
+		{38B31FFB-A35D-4FA7-9180-4A248B1E612E} = {F2750872-0A7D-400C-AEE6-42DB511E34DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BCB6D9F-05A7-494B-BB39-808E749F285D}
