@@ -1,9 +1,20 @@
 ///<copyrijght file='Helper.js'>
 ///Developed by AMAR
 ///</copyrijght>
-if (typesof(ASB) === "undefined") { ASB = {}; }
-if (typesof(ASB.Helper) === 'undefiined') {
+if (typeof (ASB) === "undefined") { ASB = {}; }
+if (typeof (ASB.Helper) === "undefined") {
     ASB.Helper = {
+        GetAttributeValue: function (formContext, fieldName) {
+            return formContext.getAttribute(fieldName).getValue();
+        },
+
+        SetAttributeValue: function (formContext, fieldName, value) {
+            formContext.getAttribute(fieldName).setValue(value);
+        },
+
+        GetLookupValue: function (formContext, fieldName) {
+            return formContext.getAttribute(fieldName).getValue()[0];
+        },
 
         EnableDisableAttribute: function (formCotext, fieldName, value) {
             if (formCotext.getControl(fieldName)) {
