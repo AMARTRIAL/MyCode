@@ -16,7 +16,7 @@ namespace ASB.Plugin
     {
         /// <summary>
         /// this function will check if email contains data for lead.Lead can be qualify only when email present. 
-        /// register - QualifyLead - Syncronous- sandbox - Post Operation - database
+        /// register - QualifyLead - Syncronous- sandbox - Pre/Post Operation - database
         /// </summary>
         /// <param name="serviceProvider"></param>
         public void Execute(IServiceProvider serviceProvider)
